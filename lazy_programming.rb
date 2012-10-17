@@ -17,6 +17,21 @@ raise ArgumentError.new "this should not run" unless twenty == 20
 
 #&block in method examples
 
+def method_block(&block)
+  block.call
+end
+
+raise ArgumentError.new "this should not run" unless method_block { 1 + 1 } == 2
+raise ArgumentError.new "this should not run" unless method_block { "foobar" } == "foobar"
+
+x = method_block do
+  a_string = "this string"
+  a_string += " was created"
+  a_string += " in a block"
+  a_string
+end
+
+raise ArgumentError.new "this should not run" unless x == "this string was created in a block"
 
 
 #class examples
