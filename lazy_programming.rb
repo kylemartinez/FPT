@@ -95,7 +95,7 @@ raise ArgumentError.new "this should not run" unless (num - 5) == 0
 
 
 class BiggerBox
-  attr_accessor :wdith, :height, :counter, :area
+  attr_accessor :width, :height, :counter, :area
 
   def initialize(w, h)
     @counter = 0
@@ -113,5 +113,9 @@ end
 big_box = BiggerBox.new(10, 10)
 raise ArgumentError.new "this should not run" unless big_box.area.eql? 100
 raise ArgumentError.new "this should not run" unless big_box.counter == 1
+
+big_box.area
+raise ArgumentError.new "this should not run" unless big_box.counter == 1
+
 
 
