@@ -16,7 +16,6 @@ twenty = four.call * 5
 raise ArgumentError.new "this should not run" unless twenty == 20
 
 #&block in method examples
-
 def method_block(&block)
   block.call
 end
@@ -35,7 +34,7 @@ raise ArgumentError.new "this should not run" unless x == "this string was creat
 
 
 #class examples
-class Box
+class Square
   attr_accessor :width, :height, :counter, :area
 
   def initialize(w, h)
@@ -54,12 +53,12 @@ class Box
   end
 end
 
-box = Box.new(10, 10)
-raise ArgumentError.new "this should not run" unless box.counter == 0
-box.area
-raise ArgumentError.new "this should not run" unless box.counter == 1
-box.area
-raise ArgumentError.new "this should not run" unless box.counter == 1
+square = Square.new(10, 10)
+raise ArgumentError.new "this should not run" unless square.counter == 0
+square.area
+raise ArgumentError.new "this should not run" unless square.counter == 1
+square.area
+raise ArgumentError.new "this should not run" unless square.counter == 1
 
 
 class Lazy < BasicObject
@@ -94,7 +93,8 @@ raise ArgumentError.new "this should not run" unless (num * 2) == 10
 raise ArgumentError.new "this should not run" unless (num - 5) == 0
 
 
-class BiggerBox
+class BiggerSquare
+
   attr_accessor :width, :height, :counter, :area
 
   def initialize(w, h)
@@ -110,12 +110,12 @@ class BiggerBox
   end
 end
 
-big_box = BiggerBox.new(10, 10)
-raise ArgumentError.new "this should not run" unless big_box.area.eql? 100
-raise ArgumentError.new "this should not run" unless big_box.counter == 1
+big_square = BiggerSquare.new(10, 10)
+raise ArgumentError.new "this should not run" unless big_square.area.eql? 100
+raise ArgumentError.new "this should not run" unless big_square.counter == 1
 
-big_box.area
-raise ArgumentError.new "this should not run" unless big_box.counter == 1
+big_square.area
+raise ArgumentError.new "this should not run" unless big_square.counter == 1
 
 
 
